@@ -1,15 +1,24 @@
 .salt-card-effect-overview,
 .salt-card-effect-detail {
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
+  gap: 8px;
 }
 .salt-card-container {
-  display: inline-block;
-  perspective: 466px;
+  display: block;
   transform-origin: center center;
   transition: 0.3s ease;
 }
-.salt-card-container + .salt-card-container {
+/* .salt-card-container + .salt-card-container {
   margin-inline-start: 8px;
+} */
+.salt-card-container:hover {
+  z-index: 9;
+}
+
+.salt-card-layer {
+  perspective: 466px;
 }
 
 /* detail */
@@ -17,7 +26,11 @@
   transform: scale(1.5);
 }
 .salt-card-effect-detail img.salt-card-img {
-  box-shadow: 0 0 20px #9999;
+  box-shadow: 0 0 10px #9999;
+  transition: all 0.1s ease, box-shadow 0.3s ease;
+}
+.salt-card-effect-detail img.salt-card-img:hover {
+  box-shadow: 0 0 30px #9999;
 }
 
 /* overview */
