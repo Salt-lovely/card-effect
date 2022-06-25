@@ -1,0 +1,27 @@
+{
+  "name": "card-effect",
+  "version": "0.1.0",
+  "description": "仿照steam的集换式卡牌做的鼠标悬停效果",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild src/index.ts --bundle --outdir=dist --charset=utf8 --legal-comments=inline",
+    "watch": "esbuild src/index.ts --bundle --outdir=dist --charset=utf8 --legal-comments=inline --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Salt-lovely/card-effect.git"
+  },
+  "keywords": [
+    "card"
+  ],
+  "author": "Salt-lovely",
+  "license": "MulanPSL-2.0",
+  "bugs": {
+    "url": "https://github.com/Salt-lovely/card-effect/issues"
+  },
+  "homepage": "https://github.com/Salt-lovely/card-effect#readme",
+  "devDependencies": {
+    "esbuild": "^0.14.11"
+  }
+}
