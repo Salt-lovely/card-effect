@@ -2,9 +2,9 @@
  * @Author: Salt
  * @Date: 2022-01-26 00:03:14
  * @LastEditors: Salt
- * @LastEditTime: 2022-04-30 19:58:21
+ * @LastEditTime: 2022-06-25 15:56:28
  * @Description: 杂项方法
- * @FilePath: \better-tieba\src\utils\utils.ts
+ * @FilePath: \card-effect\src\utils\utils.ts
  */
 
 export function docReady(fn: () => unknown): void {
@@ -45,5 +45,23 @@ export function scrollYToEl(el: Element, fix = -200) {
   window.scrollTo({
     behavior: 'smooth',
     top: top + fix,
+  })
+}
+/** 处理过的容器会标记上salt-done方法 */
+export function handleChildren(props: {
+  queryContainer: string
+  queryElement: string
+  callback: (el: HTMLElement) => Element
+}) {
+  const { queryContainer, queryElement, callback } = props
+  const containers = Array.from(document.body.querySelectorAll(queryContainer))
+  containers.forEach((container) => {
+    container.classList.add('salt-done')
+    const elems = Array.from(container.querySelectorAll(queryElement)).filter(
+      (el) => el instanceof HTMLElement
+    ) as HTMLElement[]
+    const res = elems.map((elem) => callback(elem))
+    container.innerHTML = ''
+    res.forEach((item) => container.appendChild(item))
   })
 }
